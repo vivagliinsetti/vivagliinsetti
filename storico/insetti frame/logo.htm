@@ -1,15 +1,108 @@
 <HTML>
 <HEAD>
 <TITLE>INSETTI</TITLE>
+<style>
+  /* Contenitore principale centrato */
+  .logo-audio-container {
+    display: flex;
+    flex-direction: row;       
+    align-items: center;       
+    justify-content: center;   
+    flex-wrap: wrap;           
+    gap: 10px;
+  }
+
+  /* Logo proporzionato */
+  .logo-audio-container img {
+    width: 200px;
+    height: 200px;
+    max-width: 80vw;           
+    height: auto;
+  }
+
+  /* Player minimal, trasparente di default */
+  .logo-audio-container audio {
+    height: 10px;               
+    width: 40px;                
+    opacity: 0.3;               
+    vertical-align: middle;
+    transition: all 0.3s ease;
+    border-radius: 3px;          
+  }
+
+  /* Al passaggio del mouse o focus diventa visibile e con bordo */
+  .logo-audio-container audio:hover,
+  .logo-audio-container audio:focus {
+    opacity: 1;
+    border: 1px solid #fff;      
+    box-shadow: 0 0 5px #fff;    
+  }
+
+  /* Animazione pulsare quando la musica è attiva */
+  .playing {
+    animation: pulse 1s infinite alternate;
+  }
+
+  @keyframes pulse {
+    from { opacity: 1; box-shadow: 0 0 5px #fff; }
+    to { opacity: 1; box-shadow: 0 0 15px #fff; }
+  }
+
+  /* Media query per smartphone */
+  @media (max-width: 500px) {
+    .logo-audio-container {
+      gap: 5px;
+    }
+  }
+</style>
 </HEAD>
 
 <BODY bgcolor="#D00221" background="fiorigif/sfondoins.gif">
 
-<audio controls loop>
-    <source src="apemaga.mp3" type="audio/mpeg">
-</audio>
+<!-- Wrapper logo + player -->
+<div class="logo-audio-container">
 
-<center><img src="fiorigif/verme-insetti.gif"></center>
+    <!-- Logo -->
+    <img src="fiorigif/verme-insetti.gif" alt="Verme Insetti">
+
+    <!-- Player audio compatto, discreto e animato -->
+    <audio id="bgm" controls loop>
+        <source src="apemaga.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+<!-- Script per autoplay e animazione -->
+<script>
+    const audio = document.getElementById("bgm");
+
+    function startAudio() {
+        audio.play().catch(() => {
+            console.log("Autoplay bloccato, attendi l'interazione");
+        });
+
+        // Aggiunge classe "playing" quando l'audio è in riproduzione
+        audio.classList.add("playing");
+
+        document.removeEventListener("click", startAudio);
+        document.removeEventListener("touchstart", startAudio);
+    }
+
+    // Avvio autoplay compatibile smartphone
+    document.addEventListener("click", startAudio);
+    document.addEventListener("touchstart", startAudio);
+
+    // Rimuove l'animazione se l'utente mette in pausa
+    audio.addEventListener("pause", () => {
+        audio.classList.remove("playing");
+    });
+
+    // Riattiva l'animazione quando riprende
+    audio.addEventListener("play", () => {
+        audio.classList.add("playing");
+    });
+</script>
 
 </BODY>
 </HTML>
+
