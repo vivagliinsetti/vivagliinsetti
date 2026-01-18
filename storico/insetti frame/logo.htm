@@ -15,7 +15,7 @@
 
         .container {
             display: flex;
-            align-items: center; /* centra verticalmente logo e player */
+            align-items: center; /* centra verticalmente player e logo */
         }
 
         audio {
@@ -25,7 +25,8 @@
 
         img {
             display: block;
-            height: 80px; /* altezza fissa, puoi cambiare se vuoi */
+            max-width: 100%; /* non esce dal contenitore */
+            height: auto; /* mantiene proporzioni naturali */
         }
     </style>
 </head>
@@ -42,6 +43,7 @@
 
 </body>
 </html>
+
 
 
 
