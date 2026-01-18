@@ -5,11 +5,16 @@
 
 <BODY bgcolor="#D00221" background="fiorigif/sfondoins.gif">
 
-<audio controls loop>
-    <source src="apemaga.mp3" type="audio/mpeg">
-</audio>
+<!-- Immagine e player audio sulla stessa linea, player compatto -->
+<div style="display: inline-flex; align-items: center; gap: 5px;">
+    <!-- Immagine del verme -->
+    <img src="fiorigif/verme-insetti.gif" width="200" height="200" alt="Verme Insetti">
 
-<center><img src="fiorigif/verme-insetti.gif"></center>
+    <!-- Player audio compatto, quasi invisibile verticalmente -->
+    <audio controls loop style="height: 25px; vertical-align: middle;">
+        <source src="apemaga.mp3" type="audio/mpeg">
+    </audio>
+</div>
 
 </BODY>
 </HTML>
