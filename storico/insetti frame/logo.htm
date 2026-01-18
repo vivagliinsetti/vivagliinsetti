@@ -1,20 +1,48 @@
-<HTML>
-<HEAD>
-<TITLE>INSETTI</TITLE>
-</HEAD>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INSETTI</title>
+    <style>
+        body {
+            background-color: #D00221;
+            background-image: url('fiorigif/sfondoins.gif');
+            display: flex;
+            justify-content: center; /* centra il contenitore */
+            align-items: center;
+            height: 100vh; /* altezza piena della finestra */
+            margin: 0;
+        }
 
-<BODY bgcolor="#D00221" background="fiorigif/sfondoins.gif">
+        .container {
+            display: flex;
+            align-items: center; /* centra verticalmente logo e player */
+        }
 
-<!-- Player audio compatto -->
-<audio controls loop style="height: 20px; width: 150px;">
-    <source src="apemaga.mp3" type="audio/mpeg">
-</audio>
+        audio {
+            width: 200px; /* player più piccolo */
+            margin-right: 20px; /* spazio tra player e logo */
+        }
 
-<!-- Logo centrato come prima -->
-<center><img src="fiorigif/verme-insetti.gif" width="200" height="200" alt="Verme Insetti"></center>
+        img {
+            display: block;
+            height: 80px; /* altezza fissa, puoi cambiare se vuoi */
+        }
+    </style>
+</head>
+<body>
 
-</BODY>
-</HTML>
+    <div class="container">
+        <audio controls loop>
+            <source src="apemaga.mp3" type="audio/mpeg">
+            Il tuo browser non supporta l'audio.
+        </audio>
+
+        <img src="19e3c1b6-ca6f-4368-a076-445653ed1857.gif" alt="Logo Insetti">
+    </div>
+
+</body>
+</html>
+
 
 
 
